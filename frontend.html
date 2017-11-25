@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>EnergyFlexFrontend</title>
+    <base href="/">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+</head>
+<body>
+
+<div style="text-align:center">
+    <h1>
+        GridFlex
+    </h1>
+</div>
+<h2>Area Code: 80939</h2>
+<h2>Grid Operator: GridLocal</h2>
+<h2 id="energyDemand">Current Energy Demand: </h2>
+
+<div class="container">
+    <div class="row" id="plant-cards">
+    </div>
+
+</div>
+
+<h2 id="totalProduction">Total Production: </h2>
+<p id="amountToBalance">Amount of Energy to balance: </p>
+<h2>Logs</h2>
+
+<ul id="transactions-list">
+</ul>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+        crossorigin="anonymous"></script>
+
+
+<script>
+    $(document).ready(function () {
+        //Dummy transactions
+        var transactions = [{
+            transactionId: 1,
+            data: 'Data 1'
+        }, {
+            transactionId: 2,
+            data: 'Data 2'
+        }];
+
+        var energyDemand = 350;
+        var plants = [
+            {
+                plantId: "Plant 1",
+                maxCap: 100,
+                currentCap: 0
+            },
+            {
+                plantId: "Plant 2",
+                maxCap: 150,
+                currentCap: 0
+            },
+            {
+                plantId: "Plant 3",
+                maxCap: 100,
+                currentCap: 0
+            }
+        ];
+
+        function getTotalProduction() {
+            var sum = 0;
+            for (i = 0; i < plants.length; i++) {
+                sum += plants[i].currentCap;
+            }
+
+            return sum;
+        }
+
+        function submitEnergyProduction() {
+            console.log('submit energy production')
+        }
+
+        $("#energyDemand").append(energyDemand + " units");
+        $.each(transactions, function (index, value) {
+            $("#transactions-list").append("<li>" + JSON.stringify(value) + "</li>")
+        });
+
+        $("#totalProduction").append(getTotalProduction());
+        $("#amountToBalance").append(getTotalProduction() - energyDemand);
+
+        $.each(plants, function (index, plant) {
+            console.log(plant)
+            $("#plant-cards").append(`<div class=\"card\" style=\"width: 20rem; margin:10px; padding: 10px\">
+          <div class=\"card-block\">
+            <h4 class=\"card-title\">${plant.plantId}</h4>
+            <p class=\"card-text\">Max Capacity: ${plant.maxCap} units</p>
+            <div class=\"card-text\">
+              Current Production: 
+              
+              <form>
+                  <input type=\"text\" name=\"currentCap\"/>
+                  <button type=\"submit\" class=\"btn btn-success\" id="submitEnergy"\">Submit</button>
+              </form>
+            </div>
+        
+          </div>
+        </div>`);
+        });
+
+        $("#submitEnergy").click(function () {
+            console.log("Submit Energy Production");
+            // TODO: CALL API
+        });
+    });
+
+
+</script>
+
+
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Fixed Top Navbar Example for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="./files/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="./files/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./files/navbar-fixed-top.css" rel="stylesheet">
+    <link href="./files/gaugestyles.css" rel="stylesheet">
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <script src="./files/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"></a>
+            <a href="#" class="navbar-left"><img src="./logo.png" style="height: 50px;"></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="container">
+
+    <!-- Main component for a primary marketing message or call to action -->
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">Grid Operator 1</h3>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Current Demand (MWh)</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" id="demand-1" placeholder="Current Demand"
+                               value="1000">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Area Code</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" id="operator-area-1" placeholder="Area Code"
+                               value="80377">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-4">
+
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Power Plant 1</h3>
+                </div>
+                <div class="panel-body">
+                    <canvas id="canvas1"></canvas>
+                    <div class="zero">0</div>
+                    <div class="twohundred">MAX</div>
+
+                    <form class="form-horizontal">
+                        <div class="form-group" style="display: none">
+                            <label class="col-sm-6 control-label">Max Capacity (MWh)</label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" id="capacity-1" placeholder="Max Capacity"
+                                       value="500">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-6 control-label">Current Production (MWh)</label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" id="production-1"
+                                       placeholder="Current Production" value="400">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-6 control-label">Flexibility Rate</label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" id="rate-1"
+                                       placeholder="Flexibility Rate" value="15">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-6 control-label">Area Code</label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" id="plant-area-1"
+                                       placeholder="Flexibility Rate" value="80377">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Power Plant 2</h3>
+                </div>
+                <div class="panel-body">
+                    <canvas id="canvas2"></canvas>
+                    <div class="zero">0</div>
+                    <div class="twohundred">MAX</div>
+
+                    <form class="form-horizontal">
+                        <div class="form-group" style="display: none">
+                            <label class="col-sm-6 control-label">Max Capacity (MWh)</label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" id="capacity-2" placeholder="Max Capacity"
+                                       value="300">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-6 control-label">Current Production (MWh)</label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" id="production-2"
+                                       placeholder="Current Production" value="250">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-6 control-label">Flexibility Rate</label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" id="rate-2"
+                                       placeholder="Flexibility Rate" value="10">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-6 control-label">Area Code</label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" id="plant-area-2"
+                                       placeholder="Flexibility Rate" value="80377">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Power Plant 3</h3>
+                </div>
+                <div class="panel-body">
+                    <canvas id="canvas3"></canvas>
+                    <div class="zero">0</div>
+                    <div class="twohundred">MAX</div>
+
+                    <form class="form-horizontal">
+                        <div class="form-group" style="display: none">
+                            <label class="col-sm-6 control-label">Max Capacity (MWh)</label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" id="capacity-3" placeholder="Max Capacity"
+                                       value="600">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-6 control-label">Current Production (MWh)</label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" id="production-3"
+                                       placeholder="Current Production" value="500">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-6 control-label">Flexibility Rate </label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" id="rate-3"
+                                       placeholder="Flexibility Rate" value="5">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-6 control-label">Area Code</label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" id="plant-area-3"
+                                       placeholder="Flexibility Rate" value="80377">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-offset-4  col-md-4 text-center">
+            <button class="btn btn-primary btn-lg" id="simulate">Simulate Power Production Matching</button>
+        </div>
+    </div>
+
+
+    <br>
+    <div class="panel panel-info">
+        <div class="panel-heading"> Process Logs</div>
+        <div class="panel-body">
+            <div id="logs-history" class="well" style="font-weight: bold"></div>
+        </div>
+    </div>
+
+
+</div> <!-- /container -->
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+
+<script src="./files/bootstrap.min.js"></script>
+<script src="./files/ie10-viewport-bug-workaround.js"></script>
+<script src="./node_modules/jquery-simple-websocket/dist/jquery.simple.websocket.min.js"></script>
+<script src="https://bernii.github.io/gauge.js/dist/gauge.min.js"></script>
+<script src="./files/custom.js"></script>
+</body>
+</html>
